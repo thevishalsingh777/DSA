@@ -8,7 +8,7 @@ class GFG {
 
         // code here
         for(int row = 1; row <= n; row++){
-            for(int col = 0; col < row-1; col++){
+            for(int col = 1; col <= row-1; col++){
                 System.out.print(" ");
             }
             for(int k = 1;k <=(n-row)*2+1;k++){
