@@ -8,12 +8,7 @@ class Solution {
             arm = arm + (digit*digit*digit);
             n = n / 10;
         }
-        if(original == arm){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return original == arm;
     }
 }
 
