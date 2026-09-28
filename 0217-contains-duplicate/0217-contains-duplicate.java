@@ -1,5 +1,6 @@
 class Solution {
     public boolean containsDuplicate(int[] nums) {
+        // Brute Force
         // boolean bool = false;
         // Arrays.sort(nums);
         // for(int i = 0; i < nums.length; i++){
@@ -14,14 +15,15 @@ class Solution {
         //     }
         // }
         // return bool;
-        Arrays.sort(nums);
         
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i] == nums[i - 1]) {
+        //Optimal One
+        // 
+        Set<Integer> set = new HashSet<>();
+        for(int val: nums){
+            if(!set.add(val)){
                 return true;
             }
         }
-        
         return false;
     }
 }
