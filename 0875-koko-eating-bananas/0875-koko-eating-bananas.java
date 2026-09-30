@@ -21,7 +21,8 @@ class Solution {
     public boolean possible(int[] piles, int h, int k){
         long hours = 0;
         for(int pile: piles){
-            hours += (pile + k - 1) / k;
+            // hours += (long) Math.ceil((double) pile / k);
+            hours += (pile + k - 1)/k;
             if(hours > h){
                 return false;
             }
