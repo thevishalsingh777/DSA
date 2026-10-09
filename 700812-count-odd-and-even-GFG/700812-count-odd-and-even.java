@@ -2,7 +2,7 @@ class Solution {
     public int[] countOddEven(int[] arr) {
         // Code here
         int even = 0, odd = 0;
-        int[] ans = new int[2];
+        // int[] ans = new int[2];
         for(int val : arr){
             if(val % 2 == 0){
                 even++;
@@ -11,9 +11,9 @@ class Solution {
                 odd++;
             }
         }
-        ans[0] = odd;
-        ans[1] = even;
-        return ans;
+        // ans[0] = odd;
+        // ans[1] = even;
+        return new int[]{odd,even};
     }
 }
 
