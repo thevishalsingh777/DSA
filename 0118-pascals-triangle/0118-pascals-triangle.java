@@ -14,10 +14,8 @@ class Solution {
                             + ans.get(i - 1).get(j));
                 }
             }
-
             ans.add(row);
         }
-
         return ans;
     }
 }
