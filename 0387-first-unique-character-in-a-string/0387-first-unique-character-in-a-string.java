@@ -1,24 +1,15 @@
-
-
 class Solution {
-    public int firstUniqChar(String s) {
-        HashMap<Character, Integer> mp = new HashMap<>();
-
-        for (char a : s.toCharArray()) {
-            mp.put(a, mp.getOrDefault(a, 0) + 1);
-        }
-
-        for (int i = 0; i < s.length(); i++) {
-            if (mp.get(s.charAt(i)) == 1) {
-                return i;
+     public int firstUniqChar(String s) {
+        int ans = Integer.MAX_VALUE;
+        for(char c='a'; c<='z';c++){
+            int index = s.indexOf(c);
+            if(index!=-1&&index==s.lastIndexOf(c)){
+                ans = Math.min(ans,index);
             }
         }
-
-        return -1;
-    }
+        return ans==Integer.MAX_VALUE?-1:ans;
+    }   
 }
-
-
 
 // Synced seamlessly with LeetHub Pro
 // Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
