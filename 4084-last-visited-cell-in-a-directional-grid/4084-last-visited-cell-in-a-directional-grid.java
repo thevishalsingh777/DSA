@@ -1,30 +1,17 @@
 class Solution {
     public int[] lastVisitedCell(char[][] grid) {
-        int m = grid.length;
-        int n = grid[0].length;
-        boolean[][] visited = new boolean[m][n];
-        
-        int r = 0, c = 0;
-        visited[0][0] = true;
-        
-        while (true) {
-            char dir = grid[r][c];
-            int nr = r, nc = c;
-            
-            if (dir == 'U') nr--;
-            else if (dir == 'D') nr++;
-            else if (dir == 'L') nc--;
-            else if (dir == 'R') nc++;
-            
-            // Stop if out of bounds or already visited
-            if (nr < 0 || nr >= m || nc < 0 || nc >= n || visited[nr][nc]) {
-                return new int[]{r, c};
-            }
-            
-            visited[nr][nc] = true;
-            r = nr;
-            c = nc;
+        int previ=0,prevj=0,i=0,j=0;
+        while(i>=0 && j>=0 && i<grid.length && j<grid[0].length && grid[i][j]!='$'){
+            previ=i;
+            prevj=j;
+            if(grid[i][j]=='L') j--;
+            else if(grid[i][j]=='R') j++;
+            else if(grid[i][j]=='U') i--;
+            else if(grid[i][j]=='D') i++;
+
+            grid[previ][prevj]= '$';
         }
+        return new int[]{previ,prevj};
     }
 }
 
