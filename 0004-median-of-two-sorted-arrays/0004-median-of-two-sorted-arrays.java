@@ -18,8 +18,9 @@ class Solution {
         while(j < n2){
             nums3[k++] = nums2[j++];
         }
-        if(nums3.length % 2 != 0) return (double)nums3[nums3.length/2];
-        return ((double)nums3[nums3.length/2] + (double)nums3[(nums3.length-1)/2]) / 2.0;
+        int n = n1+n2;
+        if(n % 2 != 0) return (double)nums3[n/2];
+        return ((double)nums3[n/2] + (double)nums3[(n-1)/2]) / 2.0;
     }
 }
 
