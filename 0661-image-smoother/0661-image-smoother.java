@@ -1,26 +1,48 @@
 class Solution {
     public int[][] imageSmoother(int[][] img) {
-        int rows = img.length;
-        int cols = img[0].length;
-        int[][] result = new int[rows][cols];
-
-        for (int i = 0; i < rows; ++i) {
-            for (int j = 0; j < cols; ++j) {
-                int totalSum = 0;
-                int count = 0;
-
-                for (int x = Math.max(0, i-1); x < Math.min(rows, i+2); ++x) {
-                    for (int y = Math.max(0, j-1); y < Math.min(cols, j+2); ++y) {
-                        totalSum += img[x][y];
-                        count += 1;
-                    }
+        int m = img.length;
+        int n = img[0].length;
+        int[][] ans = new int[m][n];
+        for(int i = 0; i < m; i++){
+            for(int j = 0; j < n; j++){
+                int sum = img[i][j];
+                int count = 1;
+                if(i - 1 >= 0 && j - 1 >= 0){
+                    sum+=img[i - 1][j - 1];
+                    count++;
                 }
-
-                result[i][j] = totalSum / count;
+                if(i - 1 >= 0){
+                    sum+=img[i - 1][j];
+                    count++;
+                }
+                if(i - 1 >= 0 && j + 1 < n){
+                    sum+=img[i - 1][j + 1];
+                    count++;
+                }
+                if(j + 1 < n){
+                    sum+=img[i][j + 1];
+                    count++;
+                }
+                if(i + 1 < m && j + 1 < n){
+                    sum+=img[i + 1][j + 1];
+                    count++;
+                }
+                if(i + 1 < m){
+                    sum+=img[i + 1][j];
+                    count++;
+                }
+                if(i + 1 < m && j - 1 >= 0){
+                    sum+=img[i + 1][j - 1];
+                    count++;
+                }
+                if(j - 1 >= 0){
+                    sum+=img[i][j - 1];
+                    count++;
+                }
+                ans[i][j] = sum / count;
             }
         }
-
-        return result;
+        return ans;
     }
 }
 
